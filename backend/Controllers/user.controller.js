@@ -337,7 +337,7 @@ export async function submitPromptController(req,res){
             data : save_notification
         })
     } catch (error) {
-        console.log("Submit Prompt failed : ", error.message) ;
+        console.log("Submit Prompt failed : ", error) ;
         return res.status(500).json({
             message : "Internal server error " ,
             error : true , 
