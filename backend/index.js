@@ -10,9 +10,19 @@ import UserRouter from "./Routes/user.route.js";
 import WrapperRouter from "./Routes/wrapper.route.js";
 
 const app = express();
+// app.use(cors({
+//     credentials : true ,
+//     origin : process.env.FRONTEND_URL || "http://localhost:5173"
+// }))
+app.options("*", cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(cors({
-    credentials : true ,
-    origin : process.env.FRONTEND_URL || "http://localhost:5173"
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }))
 app.use(express.json())
 app.use(cookieParser())
