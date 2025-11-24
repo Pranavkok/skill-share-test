@@ -41,7 +41,7 @@ export default function LoginPage() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        'http://localhost:3001/api/user/login',
+        `${import.meta.env.VITE_API_URL}/api/user/login`,
         formData,
         { headers: { 'Content-Type': 'application/json' }, withCredentials: true }
       );

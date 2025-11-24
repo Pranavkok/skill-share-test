@@ -29,7 +29,7 @@ export default function HomePage() {
   const handleConnect = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/api/user/submit-prompt",
+        `${import.meta.env.VITE_API_URL}/api/user/submit-prompt`,
         { prompt },
         { withCredentials: true }
       );

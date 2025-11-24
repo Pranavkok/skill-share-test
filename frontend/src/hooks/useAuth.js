@@ -13,7 +13,7 @@ function useAuth() {
     async function checkLogin() {
       try {
         const { data } = await axios.post(
-          'http://localhost:3001/api/user/me',
+          `${import.meta.env.VITE_API_URL}/api/user/me`,
           {},
           { withCredentials: true }
         );
@@ -39,7 +39,7 @@ function useAuth() {
     async function fetchCoin() {
       try {
         const { data } = await axios.post(
-          'http://localhost:3001/api/user/mycoins',
+          `${import.meta.env.VITE_API_URL}/api/user/mycoins`,
           {},
           { withCredentials: true }
         );
@@ -55,7 +55,7 @@ function useAuth() {
 
   const logout = () => {
     // Call backend logout then clear local state
-    axios.post('http://localhost:3001/api/user/logout', {}, { withCredentials: true })
+    axios.post(`${import.meta.env.VITE_API_URL}/api/user/logout`, {}, { withCredentials: true })
       .catch(() => {})
       .finally(() => {
         setIsLoggedIn(false);

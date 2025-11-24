@@ -109,7 +109,7 @@ export default function NotificationsPage() {
     try {
       setLoadingNotifications(true);
       const { data } = await axios.get(
-        'http://localhost:3001/api/user/fetch-notifications',
+        `${import.meta.env.VITE_API_URL}/api/user/fetch-notifications`,
         { withCredentials: true }
       );
       if (data?.success) {

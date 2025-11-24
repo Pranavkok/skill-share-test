@@ -34,7 +34,7 @@ const ChatPage = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/user/wrap-up', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user/wrap-up`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

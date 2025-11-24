@@ -22,7 +22,7 @@ export default function ProfilePage() {
   useEffect(() => {
     async function fetchProfile() {
       try {
-        const response = await axios.get("http://localhost:3001/api/user/get-profile", {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/get-profile`, {
           withCredentials: true, // to include cookies
         });
         if (response.data.success) {
@@ -51,7 +51,7 @@ export default function ProfilePage() {
   if (error) {
     return (
       <div className="flex items-center justify-center h-[80vh] text-red-500 font-semibold text-lg">
-        ⚠️ {error}
+        {error}
       </div>
     );
   }

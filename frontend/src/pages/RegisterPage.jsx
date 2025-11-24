@@ -55,7 +55,7 @@ export default function RegisterPage() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        'http://localhost:3001/api/user/register',
+        `${import.meta.env.VITE_API_URL}/api/user/register`,
         formData,
         { headers: { 'Content-Type': 'application/json' } }
       );

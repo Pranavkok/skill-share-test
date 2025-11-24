@@ -19,7 +19,7 @@ function ProtectedRoute({ children }) {
   useEffect(() => {
     const verify = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/api/user/isloggedin", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/isloggedin`, {
           withCredentials: true,
         });
         if (res.data.loggedIn){
