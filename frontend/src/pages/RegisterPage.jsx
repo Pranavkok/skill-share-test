@@ -68,8 +68,8 @@ export default function RegisterPage() {
 
       console.log('Registration success:', data);
       
-      alert(data?.message || 'Registered successfully!');
       navigate('/home');
+      alert(data?.message || 'Registered successfully!');
     } catch (error) {
       const message = error?.response?.data?.message || error.message || 'Network error. Please try again.';
       console.error('Registration error:', error);

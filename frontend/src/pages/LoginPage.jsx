@@ -53,8 +53,8 @@ export default function LoginPage() {
       }
 
       console.log('Login success:', data);
-      navigate('/home');
       alert(data?.message || 'Login successfully!');
+      navigate('/home');
     } catch (error) {
       const message = error?.response?.data?.message || error.message || 'Network error. Please try again.';
       console.error('Login error:', error);

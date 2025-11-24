@@ -12,16 +12,14 @@ function useAuth() {
     let isMounted = true;
     async function checkLogin() {
       try {
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/user/me`,
-          {},
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/user/get-profile`,
           { withCredentials: true }
         );
         if (!isMounted) return;
         if (data?.success) {
           setIsLoggedIn(true);
-          // Optionally fetch profile if provided elsewhere
-          setUser(data?.user || null);
+          setUser(data?.data || null);
         } else {
           setIsLoggedIn(false);
           setUser(null);
